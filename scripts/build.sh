@@ -50,7 +50,7 @@ source build/envsetup.sh
 
 # lunch the target
 if [ "$PBRP_BRANCH" = "android-12.1" ]; then
-    lunch twrp_${DEVICE}-eng || { echo "ERROR: Failed to lunch the target!" && exit 1; }
+    lunch omni_${DEVICE}-eng || { echo "ERROR: Failed to lunch the target!" && exit 1; }
 else
     lunch omni_${DEVICE}-eng || { echo "ERROR: Failed to lunch the target!" && exit 1; }
 fi
