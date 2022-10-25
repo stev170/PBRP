@@ -11,7 +11,7 @@ export OEM="xiaomi"
 #export PLATFORM="msm8998"
 export TARGET="pbrp"
 export TW_DEVICE_VERSION="1"
-export OUTPUT="PBRP*.img"
+export OUTPUT="PBRP*.zip"
 export FILENAME="PBRP*.zip"
 
 # Kernel Source
