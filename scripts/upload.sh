@@ -29,7 +29,7 @@ TW_MAIN_VERSION=$(sed -n -e 's/^.*#define TW_MAIN_VERSION_STR //p' bootable/reco
 cd out/target/product/${DEVICE}
 
 #Rename build
-mv -v $OUTPUT twrp-${TW_MAIN_VERSION}-${TW_DEVICE_VERSION}-${DEVICE}.img
+mv -v $OUTPUT PBRP-${DEVICE}.img
 
 # Upload to oshi.at
 if [ -z "$TIMEOUT" ];then
@@ -58,12 +58,12 @@ DATE_S=$(date +"%T")
 # Send the Message on Telegram
 echo -e \
 "
-🛠️ CI|TWRP Recovery
+🛠️ CI|PBRP Recovery
 
 Build Completed Successfully!
 
 📱 Device: "${DEVICE}"
-🖥 Build System: "${TWRP_BRANCH}"
+🖥 Build System: "${PBRP_BRANCH}"
 ⬇️ Download Link: <a href=\"${DL_LINK}\">Here</a>
 📅 Date: "$(date +%d\ %B\ %Y)"
 ⏱ Time: "$(date +%T)"
