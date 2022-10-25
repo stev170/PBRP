@@ -16,7 +16,7 @@ telegram_message() {
 
 # Clone the Sync Repo
 cd $SYNC_PATH
-repo init $TWRP_MANIFEST -b $TWRP_BRANCH --depth=1
+repo init $PBRP_MANIFEST -b $PBRP_BRANCH --depth=1
 repo sync
 
 # Clone Trees
@@ -27,7 +27,7 @@ git clone $DT_LINK $DT_PATH || { echo "ERROR: Failed to Clone the Device Trees!"
 [ ! -z "$KERNEL_SOURCE" ] && git clone --depth=1 --single-branch $KERNEL_SOURCE $KERNEL_PATH
 
 # Cherry-pick gerrit patches
-if [ "$TWRP_BRANCH" = "twrp-12.1" ]; then
+if [ "$PBRP_BRANCH" = "android-12.1" ]; then
 	source build/envsetup.sh
 	repopick 5917 6106
 fi
