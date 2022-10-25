@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # Device
-export TWRP_MANIFEST="https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp"
-export TWRP_BRANCH="twrp-12.1"
+export TWRP_MANIFEST="https://github.com/PitchBlackRecoveryProject/manifest_pb"
+export TWRP_BRANCH="android-12.1"
 #export TWRP_BRANCH="twrp-test"
-export DT_LINK="https://github.com/erwinabs/android_device_xiaomi_ginkgo-twrp.git -b android-12.1"
+export DT_LINK="https://github.com/PitchBlackRecoveryProject/android_device_xiaomi_ginkgo-pbrp.git -b android-12.1"
 
 export DEVICE="ginkgo"
 export OEM="xiaomi"
 #export PLATFORM="msm8998"
-export TARGET="recoveryimage"
+export TARGET="pbrp"
 export TW_DEVICE_VERSION="1"
-export OUTPUT="recovery.img"
-export FILENAME="twrp*.img"
+export OUTPUT="PBRP*.img"
+export FILENAME="PBRP*.zip"
 
 # Kernel Source
 # Uncomment the next line if you want to clone a kernel source.
