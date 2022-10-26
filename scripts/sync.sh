@@ -6,6 +6,10 @@ source $CONFIG
 # Change to the Home Directory
 cd ~
 
+# Create Folder
+mkdir twrp
+cd ~/twrp
+
 # A Function to Send Posts to Telegram
 telegram_message() {
 	curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
@@ -15,22 +19,14 @@ telegram_message() {
 }
 
 # Clone the Sync Repo
-cd $SYNC_PATH
-repo init $PBRP_MANIFEST -b $PBRP_BRANCH --depth=1
-repo sync
+repo init $MANIFEST
+cd ~/twrp
+
+# Sync the Sources
+repo sync || { echo "ERROR: Failed to TWRP source!" && exit 1; }
 
 # Clone Trees
 git clone $DT_LINK $DT_PATH || { echo "ERROR: Failed to Clone the Device Trees!" && exit 1; }
-
-# Clone the Kernel Sources
-# only if the Kernel Source is Specified in the Config
-[ ! -z "$KERNEL_SOURCE" ] && git clone --depth=1 --single-branch $KERNEL_SOURCE $KERNEL_PATH
-
-# Cherry-pick gerrit patches
-if [ "$PBRP_BRANCH" = "android-12.1" ]; then
-	source build/envsetup.sh
-	repopick 5917 6106
-fi
 
 # Exit
 exit 0
