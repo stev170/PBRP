@@ -14,6 +14,9 @@ fi
 
 
 # Send the Telegram Message
+sendMessage "✨ PBRP Recovery CI
+✔️ The Build has been Triggered!
+📱 Device: ${DEVICE}"
 
 echo -e \
 "
