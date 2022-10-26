@@ -13,7 +13,13 @@ telegram_message() {
 }
 
 # Change to the Source Directory
-cd ~/twrp
+# Change to the Home Directory
+cd ~
+
+# Clone the Sync Repo
+cd $SYNC_PATH
+repo init $TWRP_MANIFEST -b $TWRP_BRANCH --depth=1
+repo sync
 
 # Color
 ORANGE='\033[0;33m'
