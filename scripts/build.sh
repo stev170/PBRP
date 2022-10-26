@@ -3,7 +3,15 @@
 source $CONFIG
 
 # Change to the Source Directry
-cd ~/twrp
+cd $SYNC_PATH
+
+# Set-up ccache
+if [ -z "$CCACHE_SIZE" ]; then
+    ccache -M 10G
+else
+    ccache -M ${CCACHE_SIZE}
+fi
+
 
 # Send the Telegram Message
 
